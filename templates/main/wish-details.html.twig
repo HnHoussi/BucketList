@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish Details{% endblock %}
+
+{% block body %}
+    <div class="wish-card">
+        <h2>{{ wish.title }}</h2>
+        <p><strong>Description:</strong> {{ wish.description }}</p>
+        <p><strong>Author:</strong> {{ wish.author }}</p>
+        <p><strong>Published:</strong> {{ wish.published ? 'Yes' : 'No' }}</p>
+        <p><strong>Created:</strong> {{ wish.dateCreated|date('d/m/Y') }}</p>
+        {% if wish.dateUpdated %}
+            <p><strong>Last Updated:</strong> {{ wish.dateUpdated|date('d/m/Y') }}</p>
+        {% endif %}
+
+        <a href="{{ path('app_wishes_list', {page: page}) }}" class="btn btn-secondary">Back to wishes list</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,223 @@
+/* ===== Global Reset & Layout ===== */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: linear-gradient(90deg, #792291, #335a98);
+    padding: 0.75rem 1rem;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-brand img {
+    margin-right: 8px;
+}
+
+.navbar .navbar-brand:hover {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    margin-right: 0.5rem;
+}
+
+.navbar .nav-link {
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.navbar .nav-link.active {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' \
+        viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' \
+        stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' \
+        d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ===== Main Content ===== */
+main.container-fluid {
+    flex: 1;
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+
+main.container-fluid h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: #79338c;
+}
+
+/* ===== Table ===== */
+table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 50vw;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #4a90e2;
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e6f0ff;
+    transition: 0.3s;
+}
+
+/* ===== Wish Details Card ===== */
+.wish-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.wish-card h2 {
+    color: #792291;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.wish-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.wish-card strong {
+    color: #333;
+}
+
+.wish-card .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.wish-card .btn:hover {
+    background-color: #336bbd;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pagination .btn {
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination .btn:hover {
+    background-color: #336bbd;
+    transform: translateY(-2px);
+}
+
+.pagination .btn:disabled,
+.pagination .btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
+
+.pagination span {
+    margin: 0 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: linear-gradient(90deg, #335a98, #792291);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+    }
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination .btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
