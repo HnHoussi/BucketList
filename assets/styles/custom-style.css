@@ -221,3 +221,26 @@ footer {
         font-size: 14px;
     }
 }
+
+/* In your custom CSS file */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+form h1 {
+    color: #792291;
+    margin-bottom: 25px;
+}
+
+form .btn {
+    background-color: #4a90e2;
+}
+
+form .btn:hover {
+    background-color: #336bbd;
+}
+

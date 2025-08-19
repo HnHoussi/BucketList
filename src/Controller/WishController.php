@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Wish;
+use App\Form\WishType;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,19 +50,57 @@ final class WishController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_wish_details', requirements: ['id' => '\d+'], methods: ['GET'])]
-    public function showDetail(int $id, WishRepository $wishRepository, Request $request): Response
+    public function showDetail(Wish $wish, Request $request): Response
     {
-        $wish = $wishRepository->find($id);
-
-        if (!$wish) {
-            throw $this->createNotFoundException('Wish not found, go search somewhere else dude');
-        }
 
         $page = $request->query->getInt('page', 1);
 
         return $this->render('main/wish-details.html.twig', [
             'wish' => $wish,
             'page' => $page
+        ]);
+    }
+
+    #[Route('/create', name: 'app_wish_create')]
+    public function create(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $wish = new Wish();
+
+        $form = $this->createForm(WishType::class, $wish);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+
+            $entityManager->persist($wish);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Wish created successfully');
+
+            return $this->redirectToRoute('app_wish_details', ['id' => $wish->getId()]);
+        }
+        return $this->render('wish/edit.html.twig', [
+            'wish_form' => $form
+        ]);
+    }
+
+    #[Route('/update/{id}', name: 'app_wish_update', requirements: ['id' => '\d+'])]
+    public function update(Request $request, Wish $wish, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(WishType::class, $wish);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Wish updated successfully');
+
+            return $this->redirectToRoute('app_wish_details', ['id' => $wish->getId()]);
+        }
+        return $this->render('wish/edit.html.twig', [
+            'wish_form' => $form
         ]);
     }
 }

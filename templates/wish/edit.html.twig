@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme wish_form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 style="text-align: center">Edit Wish</h1>
+            {{ form(wish_form) }}
+        </div>
+    </div>
+
+{% endblock %}
