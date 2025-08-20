@@ -12,7 +12,8 @@
             <p><strong>Last Updated:</strong> {{ wish.dateUpdated|date('d/m/Y') }}</p>
         {% endif %}
 
-        <a href="{{ path('app_wish_update', {id: wish.id}) }}" class="btn btn-primary">Edit wish</a>
-        <a href="{{ path('app_wishes_list', {page: page}) }}" class="btn btn-secondary">Back to wishes list</a>
+        <a class="btn btn-primary" href="{{ path('app_wish_update', {id: wish.id}) }}">Edit wish</a>
+        <a class="btn btn-danger" href="{{ path('app_wish_delete', {page: page, id: wish.id, token : csrf_token('delete' ~wish.id)}) }}" >Delete wish</a>
+        <a class="btn btn-secondary" href="{{ path('app_wishes_list', {page: page}) }}">Back to wishes list</a>
     </div>
 {% endblock %}

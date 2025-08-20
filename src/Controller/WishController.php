@@ -103,4 +103,20 @@ final class WishController extends AbstractController
             'wish_form' => $form
         ]);
     }
+
+    #[Route('/delete/{id}', name: 'app_wish_delete', requirements: ['id' => '\d+'])]
+    public function delete(Wish $wish, EntityManagerInterface $entityManager, Request $request): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$wish->getId(), $request->get('token'))) {
+            $entityManager->remove($wish);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Wish deleted successfully');
+        } else {
+            $this->addFlash('error', 'Error while deleting the wish.');
+        }
+        return $this->redirectToRoute('app_wishes_list', [
+            'page' => 1
+        ]);
+    }
 }

@@ -143,7 +143,7 @@ table tr:hover {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4a90e2;
+    /*background-color: #4a90e2;*/
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
@@ -151,7 +151,7 @@ table tr:hover {
 }
 
 .wish-card .btn:hover {
-    background-color: #336bbd;
+    /*background-color: #336bbd;*/
 }
 
 /* ===== Pagination ===== */
@@ -166,7 +166,6 @@ table tr:hover {
 
 .pagination .btn {
     padding: 8px 16px;
-    background-color: #4a90e2;
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
@@ -177,7 +176,6 @@ table tr:hover {
 }
 
 .pagination .btn:hover {
-    background-color: #336bbd;
     transform: translateY(-2px);
 }
 
@@ -236,9 +234,6 @@ form h1 {
     margin-bottom: 25px;
 }
 
-form .btn {
-    background-color: #4a90e2;
-}
 
 form .btn:hover {
     background-color: #336bbd;
